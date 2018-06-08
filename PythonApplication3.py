@@ -6,9 +6,19 @@ root = Tk()
 root.title("To do list")
 root.geometry("200x300")
 
+#list
+tasks=[]
+
+#for testing
+tasks = ["Go to the store", "Clean the house"]
+
 #functions
+def update_listbox():
+    for task in tasks:
+        listbox.insert("end", task)
+
 def add_task():
-    pass
+    update_listbox()
 
 
 #variables
