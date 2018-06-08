@@ -13,4 +13,10 @@ n = ttk.Notebook(mainframe)
 f1 = ttk.Frame(n)        
 n.add(f1, text='List of tasks')
 
+task_name = StringVar()
+
+txt_input = ttk.Entry(f1,width=40, textvariable=task_name)
+
+btn_add_task = ttk.Button(f1, text='Add task', command = add_task)
+
 root.mainloop()
