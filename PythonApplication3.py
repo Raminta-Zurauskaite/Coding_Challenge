@@ -10,14 +10,20 @@ root.geometry("200x300")
 tasks=[]
 
 #for testing
-tasks = ["Go to the store", "Clean the house"]
+#tasks = ["Go to the store", "Clean the house"]
 
 #functions
 def update_listbox():
+    clear_listbox()
     for task in tasks:
         listbox.insert("end", task)
 
+def clear_listbox():
+    listbox.delete(0,"end")
+
 def add_task():
+    task = txt_input.get()
+    tasks.append(task)
     update_listbox()
 
 
@@ -35,11 +41,12 @@ n = ttk.Notebook(mainframe)
 
 #text input
 txt_input = ttk.Entry(root,width=40, textvariable=task_name)
+txt_input.grid(row = 0, column = 0, columnspan=2, sticky=N)
 #button for text input
 btn_add_task = ttk.Button(root, text='Add task', command = add_task)
-btn_add_task.grid(row = 0, column = 0, columnspan=2, sticky=N)
+btn_add_task.grid(row = 1, column = 0, columnspan=2, sticky=N)
 
 listbox = Listbox(root, width=40)
-listbox.grid(row = 1, column = 0, sticky=S)
+listbox.grid(row = 2, column = 0, sticky=S)
 
 root.mainloop()
